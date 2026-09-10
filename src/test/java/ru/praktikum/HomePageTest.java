@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import ru.praktikum.pages.HomePage;
 
 public class HomePageTest {
@@ -14,9 +14,9 @@ public class HomePageTest {
 
     @Test
     public void checkFirstQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -33,9 +33,9 @@ public class HomePageTest {
 
     @Test
     public void checkSecondQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -52,9 +52,9 @@ public class HomePageTest {
 
     @Test
     public void checkThirdQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -71,9 +71,9 @@ public class HomePageTest {
 
     @Test
     public void checkFourthQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -90,9 +90,9 @@ public class HomePageTest {
 
     @Test
     public void checkFifthQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -109,9 +109,9 @@ public class HomePageTest {
 
     @Test
     public void checkSixthQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -128,9 +128,9 @@ public class HomePageTest {
 
     @Test
     public void checkSeventhQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -147,9 +147,9 @@ public class HomePageTest {
 
     @Test
     public void checkEighthQuestionAnswer() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);

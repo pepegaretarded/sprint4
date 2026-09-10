@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import ru.praktikum.pages.HomePage;
 import ru.praktikum.pages.OrderPage;
 
@@ -115,9 +115,9 @@ public class OrderPageTest {
     }
 
     private void openHomePage() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
     }
