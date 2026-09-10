@@ -224,7 +224,8 @@ public class OrderPage {
                 ExpectedConditions.elementToBeClickable(confirmButton)
         );
 
-        button.click();
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", button);
     }
 
     // Проверка успешного оформления

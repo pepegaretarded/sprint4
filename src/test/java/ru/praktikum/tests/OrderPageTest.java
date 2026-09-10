@@ -1,23 +1,23 @@
 package ru.praktikum.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import ru.praktikum.BaseTest;
 import ru.praktikum.pages.HomePage;
 import ru.praktikum.pages.OrderPage;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class OrderPageTest {
+public class OrderPageTest extends BaseTest {
 
-    private WebDriver driver;
+    private static final DateTimeFormatter DATE_FORMATTER =
+            DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     private final String name;
     private final String surname;
@@ -48,8 +48,10 @@ public class OrderPageTest {
         this.comment = comment;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Collection<Object[]> getData() {
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
+
         return Arrays.asList(new Object[][]{
                 {
                         "Иван",
@@ -57,7 +59,7 @@ public class OrderPageTest {
                         "улица Ленина, 10",
                         "Сокольники",
                         "79999999999",
-                        "29.08.2026",
+                        tomorrow.format(DATE_FORMATTER),
                         "двое суток",
                         "самокат"
                 },
@@ -67,7 +69,7 @@ public class OrderPageTest {
                         "улица Гагарина, 25",
                         "Лубянка",
                         "78888888888",
-                        "30.08.2026",
+                        tomorrow.plusDays(1).format(DATE_FORMATTER),
                         "трое суток",
                         "Позвонить перед доставкой"
                 }
@@ -76,8 +78,6 @@ public class OrderPageTest {
 
     @Test
     public void orderThroughTopButton() {
-        openHomePage();
-
         HomePage homePage = new HomePage(driver);
         homePage.clickTopOrderButton();
 
@@ -96,8 +96,6 @@ public class OrderPageTest {
 
     @Test
     public void orderThroughBottomButton() {
-        openHomePage();
-
         HomePage homePage = new HomePage(driver);
         homePage.clickBottomOrderButton();
 
@@ -112,14 +110,6 @@ public class OrderPageTest {
                 "Не появилось сообщение об успешном оформлении заказа",
                 orderPage.isOrderCreated()
         );
-    }
-
-    private void openHomePage() {
-        WebDriverManager.chromedriver().setup();
-
-        driver = new ChromeDriver();
-
-        driver.get("https://qa-scooter.praktikum-services.ru/");
     }
 
     private void fillOrderForm() {
@@ -139,10 +129,4 @@ public class OrderPageTest {
         orderPage.setComment(comment);
     }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }
